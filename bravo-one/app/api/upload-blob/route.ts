@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   const containerName = "kalkyler";
   const blobName = "Exempelkalkyl_1_Small.xlsx";
 
-  const blobServiceClient = BlobServiceClient.fromConnectionString(
+  const blobServiceClient = new BlobServiceClient(
     AZURE_STORAGE_CONNECTION_STRING
   );
   const containerClient = blobServiceClient.getContainerClient(containerName);
