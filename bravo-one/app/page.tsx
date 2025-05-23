@@ -1,11 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import {
-  RegisterLink,
-  LoginLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -30,17 +25,6 @@ export default function Home() {
           </li>
           <li>Work with your tenders and tasks in the tender view.</li>
         </ul>
-
-        {process.env.NEXT_PUBLIC_AUTH_ACTIVE === "true" && (
-          <div className="w-full px-8 flex justify-between items-center gap-[24px]">
-            <LoginLink>
-              <Button>Login</Button>
-            </LoginLink>
-            <RegisterLink>
-              <Button>Sign up</Button>
-            </RegisterLink>
-          </div>
-        )}
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         Alpha 0.1.0
