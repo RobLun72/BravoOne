@@ -1,0 +1,539 @@
+{
+  "Aktivitetskort": [
+    {
+      "Uppgift": "01 - [610] - Kanalisation mark",
+      "Uppgift Beskrivning": "Montera kanalisation i mark inklusive dragtråd, kabelrör och radonskydd",
+      "Total tid": 195.41,
+      "Material": [
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 297.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 270.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 50/42 gul 6m",
+          "Mängd": 270.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 2.7,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 396.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 360.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 50/42 gul 6m",
+          "Mängd": 360.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 3.6,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 946.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 860.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 50/42 gul 6m",
+          "Mängd": 860.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 8.6,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 330.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 300.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 110/95 gul 6m",
+          "Mängd": 300.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 36.3,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 33.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 160/140 gul 6m",
+          "Mängd": 33.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 0.33,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Radon/vattentätn F802 50mm",
+          "Mängd": 126.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Radon/vattentätn F802 110mm",
+          "Mängd": 24.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Radon/vattentätn F802 160mm",
+          "Mängd": 5.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dragtråd 1200N 750m/rulle",
+          "Mängd": 484.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Idraga dragtråd i tomrör",
+          "Mängd": 440.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelrör SRN 50/42 gul 6m",
+          "Mängd": 440.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "KABELSMÖRJMEDEL LUB-1/0,95L",
+          "Mängd": 4.4,
+          "Enhet": "st"
+        }
+      ]
+    },
+    {
+      "Uppgift": "06 - [633] - Belysning",
+      "Uppgift Beskrivning": "Montera belysningsarmaturer, stolpar och erforderligt kablage",
+      "Total tid": 55.51,
+      "Material": [
+        {
+          "Benämning": "Armatur S1",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Parkstolpe MMSH40 K",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Parkfundament MEAG 108 just",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Tätningshuv 108-114 MEAG",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Låskil 108 MEAG",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Stolpinsats STS-1-4-4 MK",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "EXQJ Pure 4x2,5/2,5",
+          "Mängd": 12.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Armatur S02 Pollare",
+          "Mängd": 24.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Markfäste",
+          "Mängd": 24.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Adapter för Betongfundame",
+          "Mängd": 24.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Stolpfundament 108/700",
+          "Mängd": 24.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "EXQJ Pure 4x2,5/2,5",
+          "Mängd": 48.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Armatur S3",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Parkstolpe MMSH40 K",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Parkfundament MEAG 108 just",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Tätningshuv 108-114 MEAG",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Låskil 108 MEAG",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Stolpinsats STS-1-4-4 MK",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "EXQJ Pure 4x2,5/2,5",
+          "Mängd": 32.0,
+          "Enhet": "m"
+        }
+      ]
+    },
+    {
+      "Uppgift": "09 - [623] - Centraler, Ställv, AS.",
+      "Uppgift Beskrivning": "Driftsätta centraler, ställverk och anslutningssystem med kabeldragning",
+      "Total tid": 18.0,
+      "Material": [
+        {
+          "Benämning": "EXQJ Pure 4x2,5/2,5",
+          "Mängd": 450.0,
+          "Enhet": "m"
+        }
+      ]
+    },
+    {
+      "Uppgift": "02 - [610] - Kanalisation",
+      "Uppgift Beskrivning": "Installera kabelsystem och bärverk i garage",
+      "Total tid": 21.28,
+      "Material": [
+        {
+          "Benämning": "Kabelstege 200mm 3m sendz",
+          "Mängd": 16.5,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Bult/mutter M10 50st",
+          "Mängd": 22.44,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Potentialmärkning MP-837 F",
+          "Mängd": 4.125,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Teleränna 50mm perf 3m sendz",
+          "Mängd": 16.5,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Skarvjärn sendz",
+          "Mängd": 11.055,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Ändskydd plast",
+          "Mängd": 1.65,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Pendelskena 3m",
+          "Mängd": 16.5,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Takfäste 102mm sendz",
+          "Mängd": 8.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Pendelskaft sendz",
+          "Mängd": 8.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Bärok 200mm Sendz",
+          "Mängd": 8.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Betongskruv 7.5x70 MP-891",
+          "Mängd": 16.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "[ATL .12.526.100] - Kapa pendel",
+          "Mängd": 8.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Kabelstege 200mm 3m sendz",
+          "Mängd": 14.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Bult/mutter M10 50st",
+          "Mängd": 19.04,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Skarvjärn sendz",
+          "Mängd": 9.38,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Ändskydd plast",
+          "Mängd": 1.4,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Konsolklammer FZ",
+          "Mängd": 14.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Väggkonsol 200mm sendz",
+          "Mängd": 7.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Betongskruv 7.5x70 MP-891",
+          "Mängd": 14.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Teleränna 50mm perf 3m sendz",
+          "Mängd": 14.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Kabelstege 400mm 3m sendz",
+          "Mängd": 1.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Bult/mutter M10 50st",
+          "Mängd": 1.36,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Potentialmärkning MP-837 F",
+          "Mängd": 0.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Teleränna 50mm ohålad 3m sendz",
+          "Mängd": 1.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Skarvjärn sendz",
+          "Mängd": 0.67,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Ändskydd plast",
+          "Mängd": 0.1,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Pendelskena 3m",
+          "Mängd": 1.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Takfäste 102mm sendz",
+          "Mängd": 0.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Pendelskaft sendz",
+          "Mängd": 0.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Bärok 400mm Sendz",
+          "Mängd": 0.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Betongskruv 7.5x70 MP-891",
+          "Mängd": 1.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "[ATL .12.526.100] - Kapa pendel",
+          "Mängd": 0.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "[ATL. 09.595.100] Avvinkla stege, rak kapn.",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Bult/mutter M10 50st",
+          "Mängd": 12.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Univerasalled sendz",
+          "Mängd": 6.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Ståltråd HT 2309 5mm",
+          "Mängd": 250.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Ändfäste för bärtråd HT14",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Spännögla HT-611",
+          "Mängd": 8.0,
+          "Enhet": "st"
+        }
+      ]
+    },
+    {
+      "Uppgift": "10 - [632] - Allmänkraft",
+      "Uppgift Beskrivning": "Montera och ansluta allmänkraftsdistrubution inklusive utrustning och dosor",
+      "Total tid": 10.48,
+      "Material": [
+        {
+          "Benämning": "Förstärkare 4G (Uppskattat pris)",
+          "Mängd": 1.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Laddbox CC2 3,7kW två uttag",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "EXQJ Pure 4x10/10",
+          "Mängd": 7.5,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "Uppledningsskydd 35 1,2m",
+          "Mängd": 6.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Koppl dosa IP66/67 16mm²",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Koppl dosa U56 vit klickl",
+          "Mängd": 0.75,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "[ATL. 09.595.100] - Märkskylt t.o.m. 7x3 cm (graverad)",
+          "Mängd": 0.75,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Klämma WAGO 243-204",
+          "Mängd": 1.5,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Klämma WAGO 243-504",
+          "Mängd": 2.25,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "VÄGGUTTAG 2-VÄGS M. LOCK",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "EQLQ Tube Pure 3G1,5 K6/T500",
+          "Mängd": 9.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "VP-rör 20mm 320N vit 3m",
+          "Mängd": 9.0,
+          "Enhet": "m"
+        },
+        {
+          "Benämning": "[ATL. 09.595.100] - Märkskylt t.o.m. 7x3 cm (graverad)",
+          "Mängd": 3.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Apparatdosa 13/26 AU60.1",
+          "Mängd": 1.0,
+          "Enhet": "st"
+        },
+        {
+          "Benämning": "Dosfäste vit 25mm",
+          "Mängd": 1.0,
+          "Enhet": "st"
+        }
+      ]
+    }
+  ]
+}
