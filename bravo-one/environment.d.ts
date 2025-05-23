@@ -6,5 +6,6 @@ declare namespace NodeJS {
     readonly NEXT_PUBLIC_MSW_API_DELAY: number;
     readonly NEXT_PUBLIC_MSW_WARN: string;
     readonly NEXT_PUBLIC_AUTH_ACTIVE: string;
+    readonly NEXT_PUBLIC_AZURE_STORAGE_CONNECTION_STRING: string;
   }
 }

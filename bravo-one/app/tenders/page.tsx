@@ -119,6 +119,24 @@ export default function Page() {
     fetchData();
   };
 
+  const uploadFile = async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/api/upload-blob", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (res.ok) {
+      // Success
+      setPageState((prev) => ({ ...prev, showItemForm: false }));
+    } else {
+      // Handle error
+      setPageState((prev) => ({ ...prev, showItemForm: false }));
+    }
+  };
+
   const handleFileInput = (fileList: FileList) => {
     if (!fileInputRef.current) throw new Error("No file input field found");
     const newFile = fileList?.item(0);
@@ -211,9 +229,8 @@ export default function Page() {
               <Button
                 variant={"outline"}
                 className="mb-4"
-                onClick={() =>
-                  setPageState((prev) => ({ ...prev, showItemForm: false }))
-                }
+                onClick={() => uploadFile(pageState.fileData!)}
+                disabled={pageState.fileData === undefined}
               >
                 Upload
               </Button>
