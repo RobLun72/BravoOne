@@ -12,7 +12,7 @@ export const handleReq = async (
   }
 
   switch (baseUrl) {
-    case `/tenders`:
+    case ``:
       if (url && url.href) {
         console.log(
           "Tenders page server action request",

@@ -6,7 +6,7 @@ const allListsHandlers = (responseDelay: number) => {
     httpHandler(
       "get",
       process.env.NEXT_PUBLIC_BACK_END_URL,
-      "/tenders",
+      "",
       "",
       responseDelay
     ),
