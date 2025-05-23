@@ -15,8 +15,6 @@ import {
   //navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { usePathname } from "next/navigation";
-import { LogoutLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 interface MenuComponentProps {
   topMenu: string;
@@ -51,39 +49,11 @@ const components: MenuComponentProps[] = [
   },
 ];
 
-const unAuthComponents: MenuComponentProps[] = [
-  {
-    topMenu: "Actions",
-    paths: ["start", "about"],
-    items: [
-      {
-        title: "Start",
-        href: "/",
-        path: "start",
-        description: "The landing page.",
-      },
-      {
-        title: "About",
-        href: "/about",
-        path: "about",
-        description: "Description about how the app is built.",
-      },
-    ],
-  },
-];
-
 export function AppMenu() {
   const path = usePathname();
   const pathParts = path.split("/");
 
-  const { isAuthenticated } = useKindeBrowserClient();
-
-  const mapComponents: MenuComponentProps[] =
-    process.env.NEXT_PUBLIC_AUTH_ACTIVE === "false"
-      ? components
-      : isAuthenticated
-      ? components
-      : unAuthComponents;
+  const mapComponents: MenuComponentProps[] = components;
 
   return (
     <div className="flex md:min-w-3xl min-w-sm max-w-7xl items-center  bg-white px-4 py-2">
@@ -129,20 +99,6 @@ export function AppMenu() {
           ))}
         </NavigationMenuList>
       </NavigationMenu>
-      {process.env.NEXT_PUBLIC_AUTH_ACTIVE === "true" && (
-        <div className="flex justify-end align-middle flex-grow">
-          {isAuthenticated && (
-            <LogoutLink>
-              <div className="text-black">Logout</div>
-            </LogoutLink>
-          )}
-          {!isAuthenticated && (
-            <LoginLink>
-              <div className="text-black">Login</div>
-            </LoginLink>
-          )}
-        </div>
-      )}
     </div>
   );
 }
