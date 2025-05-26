@@ -16,6 +16,40 @@ import { Button } from "@/components/ui/button";
 import { FileInput } from "@/components/ui/fileUpload";
 //import { BlobServiceClient } from "@azure/storage-blob";
 
+const DownloadIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="size-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+    />
+  </svg>
+);
+
+const GetDataIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="size-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+    />
+  </svg>
+);
+
 export interface ListsPageState {
   load: boolean;
   pendingSave: boolean;
@@ -130,10 +164,20 @@ export default function Page() {
 
     if (res.ok) {
       // Success
-      setPageState((prev) => ({ ...prev, showItemForm: false }));
+      setPageState((prev) => ({
+        ...prev,
+        showItemForm: false,
+        pendingSave: false,
+      }));
+      toast.success("Excel uploaded successfully!");
     } else {
       // Handle error
-      setPageState((prev) => ({ ...prev, showItemForm: false }));
+      setPageState((prev) => ({
+        ...prev,
+        showItemForm: false,
+        pendingSave: false,
+      }));
+      toast.error("Error uploading: " + res.statusText);
     }
   };
 
@@ -148,23 +192,23 @@ export default function Page() {
 
   return (
     <Fragment>
-      <div>
+      <div className="border border-gray-300 bg-white rounded-lg py-2 px-4 mb-4 mx-2 mt-4 flex align-middle justify-between">
         <Button
           variant={"outline"}
-          className="mb-4"
+          className="p-6 text-lg"
           onClick={() =>
             setPageState((prev) => ({ ...prev, showItemForm: true }))
           }
         >
-          Upload Excel
+          {DownloadIcon} Upload Excel
         </Button>
-        <Button variant={"outline"} className="mb-4" onClick={getData}>
-          Get data
+        <Button variant={"outline"} className="p-6 text-lg" onClick={getData}>
+          {GetDataIcon} Get restructured Excel data
         </Button>
       </div>
       {pageState.tender === undefined && (
         <div>
-          <div className="pt-8 px-3 pb-2 text-xl">Tenders</div>
+          <div className="pt-2 px-3 pb-2 text-xl">Tenders</div>
           <div className="py-2 px-3 mb-4">
             <TendersSkeleton />
           </div>
@@ -173,7 +217,7 @@ export default function Page() {
       {pageState.tender !== undefined && (
         <div>
           <div className="flex flex-row justify-between items-center">
-            <div className="pt-8 px-3 pb-2 md:text-xl text-lg">Tenders</div>
+            <div className="pt-2 px-3 pb-2 md:text-xl text-lg">Tenders</div>
           </div>
           <div className="py-2 px-3">
             {pageState.tender &&
@@ -229,7 +273,13 @@ export default function Page() {
               <Button
                 variant={"outline"}
                 className="mb-4"
-                onClick={() => uploadFile(pageState.fileData!)}
+                onClick={() => {
+                  setPageState((prev) => ({
+                    ...prev,
+                    pendingSave: true,
+                  }));
+                  uploadFile(pageState.fileData!);
+                }}
                 disabled={pageState.fileData === undefined}
               >
                 Upload
