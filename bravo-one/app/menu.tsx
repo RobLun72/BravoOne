@@ -34,10 +34,10 @@ const components: MenuComponentProps[] = [
         description: "The landing page.",
       },
       {
-        title: "Tenders",
+        title: "Activity Cards",
         href: "/tenders",
         path: "tenders",
-        description: "The tenders.",
+        description: "The Activity Cards.",
       },
       {
         title: "About",

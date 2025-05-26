@@ -1,5 +1,6 @@
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import actCard from "../MockedData/bravo_data_output.json";
+import emptyActCard from "../MockedData/empty_data.json";
 
 export const handleReq = async (
   baseUrl: string,
@@ -20,7 +21,15 @@ export const handleReq = async (
           url.href
         );
       }
-      return HttpResponse.json(actCard);
+
+      // 60% chance to return actCard, otherwise emptyActCard
+      const random = Math.random();
+      console.log("Random number for actCard:", random);
+      if (random < 0.6) {
+        return HttpResponse.json(actCard);
+      } else {
+        return HttpResponse.json(emptyActCard);
+      }
       break;
     default:
       return HttpResponse.error();
