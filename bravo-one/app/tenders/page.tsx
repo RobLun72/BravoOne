@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { TendersSkeleton } from "./tenderSkeleton";
 import { toast } from "sonner";
 import { stableInit } from "@/Helpers/stableInit";
@@ -14,7 +14,8 @@ import { MaterialsTable } from "./materialsTable";
 import { sortAscending } from "@/Helpers/sortAndFilter";
 import { Button } from "@/components/ui/button";
 import { FileInput } from "@/components/ui/fileUpload";
-//import { BlobServiceClient } from "@azure/storage-blob";
+import { OverlayWithCenteredInput } from "@/components/ui/overlayCenteredInput";
+import { LoadingSpinner } from "@/components/ui/spinner";
 
 const DownloadIcon = (
   <svg
@@ -60,90 +61,56 @@ export interface ListsPageState {
   showDeleteConfirm: boolean;
   tender?: Tender;
   fileData?: File;
+  runTimer: boolean;
+  nrOfPolls: number;
 }
 
 export default function Page() {
   const [pageState, setPageState] = useState<ListsPageState>({
-    load: false,
+    load: true,
     pendingSave: false,
     message: "",
     isDirty: false,
     isEditing: true,
     showItemForm: false,
     showDeleteConfirm: false,
+    runTimer: false,
+    nrOfPolls: 0,
   });
 
-  // const getBlob = async (url: string) => {
-
-  // const account = "<account name>";
-  // const sas = "<service Shared Access Signature Token>";
-  // const containerName = "<container name>";
-  // const blobName = "<blob name>";
-
-  // const blobServiceClient = new BlobServiceClient(`https://${account}.blob.core.windows.net?${sas}`);
-  // const containerClient = blobServiceClient.getContainerClient(containerName);
-  // const blobClient = containerClient.getBlobClient(blobName);
-  // const downloadBlockBlobResponse = await blobClient.download();
-  // const blob = await downloadBlockBlobResponse.blobBody;
-
-  //   const response = await fetch(url);
-  //   if (!response.ok) {
-  //     throw new Error("Network response was not ok");
-  //   }
-  //   const blob = await response.blob();
-  //   const file = new File([blob], "file.pdf", { type: blob.type });
-  //   return file;
-  // }
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const envVariable = process.env.NEXT_PUBLIC_BACK_END_URL;
   //const baseQuery = "/tenders";
 
-  useEffect(() => {
-    // const fetchData = async () => {
-    //   await stableInit();
-
-    //   try {
-    //     const data = await fetch(`${envVariable}`);
-    //     const tender: Tender = await data.json();
-    //     // Fix the first index if it is empty
-
-    //     setPageState((prev) => ({
-    //       ...prev,
-    //       load: false,
-    //       tender: tender,
-    //     }));
-    //   } catch (error) {
-    //     setPageState((prev) => ({
-    //       ...prev,
-    //       load: false,
-    //     }));
-    //     toast.error("Error loading: " + error);
-    //   }
-    // };
-
-    setPageState((prev) => ({ ...prev, load: true }));
-    //fetchData();
-  }, [envVariable]);
-
-  const getData = async () => {
+  const getData = useCallback(async () => {
     const fetchData = async () => {
       await stableInit();
 
       try {
         const data = await fetch(`${envVariable}`);
         const tender: Tender = await data.json();
-        // Fix the first index if it is empty
+
+        let startTimer = false;
+        if (
+          tender.Aktivitetskort.length === 1 &&
+          tender.Aktivitetskort[0].Uppgift === "Generating activity cards..."
+        ) {
+          startTimer = true;
+        }
 
         setPageState((prev) => ({
           ...prev,
           load: false,
           tender: tender,
+          runTimer: startTimer,
+          nrOfPolls: startTimer ? prev.nrOfPolls + 1 : 0,
         }));
       } catch (error) {
         setPageState((prev) => ({
           ...prev,
           load: false,
+          runTimer: false,
         }));
         toast.error("Error loading: " + error);
       }
@@ -151,24 +118,42 @@ export default function Page() {
 
     setPageState((prev) => ({ ...prev, load: true }));
     fetchData();
-  };
+  }, [envVariable]);
+
+  useEffect(() => {
+    if (!pageState.runTimer) return;
+
+    const interval = setInterval(() => {
+      getData();
+    }, 20000); // 20 seconds
+
+    return () => clearInterval(interval);
+  }, [getData, pageState.runTimer]);
 
   const uploadFile = async (file: File) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("/api/upload-blob", {
-      method: "POST",
-      body: formData,
-    });
+    let res: Response;
+    if (process.env.NEXT_PUBLIC_ENABLE_MSW_MOCKING === "true") {
+      res = new Response(null, { status: 200, statusText: "OK" });
+    } else {
+      res = await fetch("/api/upload-blob", {
+        method: "POST",
+        body: formData,
+      });
+    }
 
     if (res.ok) {
       // Success
+      await new Promise((r) => setTimeout(r, 2000));
+
       setPageState((prev) => ({
         ...prev,
         showItemForm: false,
         pendingSave: false,
       }));
+
       toast.success("Excel uploaded successfully!");
     } else {
       // Handle error
@@ -202,13 +187,21 @@ export default function Page() {
         >
           {DownloadIcon} Upload Excel
         </Button>
-        <Button variant={"outline"} className="p-6 text-lg" onClick={getData}>
-          {GetDataIcon} Get restructured Excel data
+        <Button
+          variant={"outline"}
+          className="p-6 text-lg"
+          onClick={getData}
+          disabled={
+            pageState.fileData === undefined ||
+            (pageState.fileData !== undefined && pageState.pendingSave === true)
+          }
+        >
+          {GetDataIcon} Generate activity cards
         </Button>
       </div>
       {pageState.tender === undefined && (
         <div>
-          <div className="pt-2 px-3 pb-2 text-xl">Tenders</div>
+          <div className="pt-2 px-3 pb-2 text-xl">Activity Cards</div>
           <div className="py-2 px-3 mb-4">
             <TendersSkeleton />
           </div>
@@ -217,7 +210,9 @@ export default function Page() {
       {pageState.tender !== undefined && (
         <div>
           <div className="flex flex-row justify-between items-center">
-            <div className="pt-2 px-3 pb-2 md:text-xl text-lg">Tenders</div>
+            <div className="pt-2 px-3 pb-2 md:text-xl text-lg">
+              Activity Cards
+            </div>
           </div>
           <div className="py-2 px-3">
             {pageState.tender &&
@@ -229,9 +224,19 @@ export default function Page() {
                   >
                     <h2 className="text-lg font-bold">{item.Uppgift}</h2>
                     <p>{item["Uppgift Beskrivning"]}</p>
-                    <p>
-                      <b>Total tid:</b> {item["Total tid"]}
-                    </p>
+                    {item.Uppgift != "Generating activity cards..." && (
+                      <p>
+                        <b>Total tid:</b> {item["Total tid"]}
+                      </p>
+                    )}
+                    {item.Uppgift === "Generating activity cards..." && (
+                      <div className="flex flex-row  w-full align-middle">
+                        <LoadingSpinner className="h-8 w-8 text-appBlue animate-spin" />
+                        <div className="text-sm ml-2 pt-1.5 mb-4">
+                          Checked {pageState.nrOfPolls} time(s)...
+                        </div>
+                      </div>
+                    )}
                     {item.Material.length > 0 && (
                       <Accordion type="single" collapsible className="w-full">
                         <AccordionItem value="item-1">
@@ -296,6 +301,16 @@ export default function Page() {
             </div>
           </div>
         </div>
+      )}
+      {pageState.pendingSave && (
+        <OverlayWithCenteredInput className="md:h-1/12 h-2/12 p-2 md:w-4/12 w-10/12 flex items-center">
+          <div className="flex flex-col items-center justify-center w-full">
+            <LoadingSpinner className="h-12 w-12 text-appBlue animate-spin" />
+            <div className="text-center text-lg font-semibold mb-4">
+              Uploading...
+            </div>
+          </div>
+        </OverlayWithCenteredInput>
       )}
     </Fragment>
   );

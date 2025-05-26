@@ -1,0 +1,10 @@
+{
+  "Aktivitetskort": [
+    {
+      "Uppgift": "Generating activity cards...",
+      "Uppgift Beskrivning": "Processing Excel file & generating activity cards, this may take a few minutes.",
+      "Total tid": 999,
+      "Material": []
+    }
+  ]
+}
